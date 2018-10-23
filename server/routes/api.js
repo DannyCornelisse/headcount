@@ -41,4 +41,43 @@ router.get('/users', (req, res) => {
     });
 });
 
+router.post('/users', (req, res) => {
+  connection((db) => {
+    db.collection('users').insertOne(req.body, (err, result) => {
+      console.log(req.body);
+      if (err) {
+        return console.log(err);
+      } else {
+        return res.json({message: "post successfull"});
+      }
+    });
+  });
+});
+
+router.put('/users', (req, res) => {
+  connection((db) => {
+    db.collection('users').updateOne(
+      { "_id": ObjectID(req.body._id)}, // Filter
+      { $set: { "name": req.body.name } }, // Update
+      { upsert: true } // add document with req.body._id if not exists
+    )
+  });
+});
+
+router.delete('/users/', (req, res) => {
+  const _id = req.query._id;
+  console.log(_id);
+
+  connection((db) => {
+    db.collection('users')
+      .deleteOne(
+        { "_id": ObjectID(_id)}, // Filter
+        (err, result) => {
+          if (err) return sendError(err, res);
+          res.json({message: 'user with id ' + _id + ' deleted'})
+        }
+      )
+  });
+});
+
 module.exports = router;
