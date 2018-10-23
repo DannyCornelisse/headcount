@@ -10,7 +10,8 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "server": "nodemon server.js -w",
-    "dev": "concurrently --kill-others \"npm run server\" \"npm run client\""
+    "database": "mongo",
+    "dev": "concurrently --kill-others \"npm run database\" \"npm run server\" \"npm run client\""
   },
   "private": true,
   "dependencies": {
@@ -23,9 +24,11 @@
     "@angular/platform-browser": "^6.1.0",
     "@angular/platform-browser-dynamic": "^6.1.0",
     "@angular/router": "^6.1.0",
+    "assert": "^1.4.1",
     "body-parser": "^1.18.3",
     "core-js": "^2.5.4",
     "express": "^4.16.3",
+    "mongodb": "^3.1.8",
     "rxjs": "~6.2.0",
     "zone.js": "~0.8.26"
   },
