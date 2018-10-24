@@ -80,4 +80,5 @@ router.delete('/users/', (req, res) => {
   });
 });
 
+// should only export the router
 module.exports = router;

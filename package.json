@@ -9,7 +9,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "server": "nodemon server.js -w",
+    "server": "nodemon ./server/server.js -w",
     "database": "mongo",
     "dev": "concurrently --kill-others \"npm run database\" \"npm run server\" \"npm run client\""
   },

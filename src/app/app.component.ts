@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { EmployeeService } from './services/employee.service';
+import { Employee } from './interfaces/employee';
 
 @Component({
   selector: 'app-root',
@@ -9,9 +11,11 @@ import { HttpClient } from '@angular/common/http';
 export class AppComponent implements OnInit {
   title = 'headcount';
   users: Array<any>;
+  employees: Array<Employee>;
 
   constructor (
-    public http: HttpClient
+    public http: HttpClient,
+    public employeeService: EmployeeService
   ) {
 
   }
@@ -42,7 +46,18 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.deleteUser('5bcf25dee07d9332a03a8984')
-      .subscribe(res => console.log(res));
+    // const newEmployee: Employee = { name: 'Danny', onProject: true };
+
+    // this.employeeService
+    //   .addEmployee(newEmployee)
+    //   .subscribe(res => console.log(res));
+    this.employeeService
+      .getEmployees()
+      .subscribe(
+        (employees: Array<Employee>) => {
+          this.employees = employees;
+        },
+        err => console.log(err)
+      );
   }
 }
