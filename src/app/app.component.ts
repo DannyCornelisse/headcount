@@ -6,12 +6,13 @@ import { Employee } from './interfaces/employee';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
   title = 'headcount';
   users: Array<any>;
   employees: Array<Employee>;
+  navOpen = true;
 
   constructor (
     public http: HttpClient,
@@ -43,6 +44,10 @@ export class AppComponent implements OnInit {
         _id: userId
       }
     });
+  }
+
+  toggleNav () {
+    this.navOpen = !this.navOpen;
   }
 
   ngOnInit() {

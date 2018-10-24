@@ -1,0 +1,42 @@
+$nav-blue: #253340;
+
+:host {
+  display: flex;
+  min-height: 100vh;
+}
+
+nav {
+  grid-area: nav;
+  background: $nav-blue;
+  width: 300px;
+  transition: width 0.5s;
+  &.nav-closed {
+    width: 40px;
+  }
+}
+
+.container {
+  flex-grow: 1;
+  display: grid;
+  grid-template-areas:
+    "header"
+    "content"
+    "footer";
+  grid-template-columns: auto;
+  grid-template-rows: auto 1fr;
+  grid-gap: 0 10px;
+  height: 100vh;
+  transition: 2s;
+}
+
+header {
+  grid-area: header;
+}
+
+main {
+  grid-area: content;
+}
+
+footer {
+  grid-area: footer;
+}

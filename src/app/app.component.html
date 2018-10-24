@@ -1,11 +1,23 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to HeadCount!
-  </h1>
-  <div *ngFor="let employee of employees">
-    <p>{{employee.name}}</p>
-    <p>Is on project? --> <span>{{employee.onProject}}</span></p>
-  </div>
+<nav [ngClass]="{'nav-closed': !navOpen}">
+  <button (click)="toggleNav()">clickks</button>
+  <!-- Navigation -->
+</nav>
+<div class="container">
+  <header>
+    <!-- Header content -->
+  </header>
+  <main>
+    <div style="text-align:center">
+      <h1>
+        Welcome to HeadCount!
+      </h1>
+      <div *ngFor="let employee of employees">
+        <p>{{employee.name}}</p>
+        <p>Is on project? --> <span>{{employee.onProject}}</span></p>
+      </div>
+    </div>
+  </main>
+  <footer>
+    <!-- Footer content -->
+  </footer>
 </div>
-
