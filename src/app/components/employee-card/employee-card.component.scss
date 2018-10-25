@@ -2,7 +2,26 @@
   width: 150px;
   height: 300px;
   padding: 1rem;
-  border: 2px solid lightblue;
-  background: #FFF;
   margin: 0.5rem;
+  background: #F8F8F8;
+  box-shadow: 0 8px 6px -6px lightblue;
+  border-radius: 3x;
+  &:hover {
+    cursor: pointer;
+    box-shadow: 0 10px 6px -6px lightblue;
+    margin-top: 0.4rem;
+    transition: 0.1s;
+  }
+}
+
+.employee-headshot-container {
+  height: 80px;
+  width: 80px;
+  border-radius: 50%;
+  margin: 0 auto;
+  background: white;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
