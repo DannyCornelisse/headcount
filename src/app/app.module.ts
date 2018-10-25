@@ -7,6 +7,7 @@ import { RouterModule, Routes } from '@angular/router';
 // Components
 import { AppComponent } from './app.component';
 import { EmployeeComponent } from './components/pages/employee/employee.component';
+import { EmployeeCardComponent } from './components/employee-card/employee-card.component';
 
 // Services
 import { EmployeeService } from './services/employee.service';
@@ -29,7 +30,8 @@ const appRoutes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    EmployeeComponent
+    EmployeeComponent,
+    EmployeeCardComponent
   ],
   imports: [
     BrowserModule, HttpClientModule,
