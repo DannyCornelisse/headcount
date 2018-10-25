@@ -11,7 +11,6 @@ import { Employee } from './interfaces/employee';
 export class AppComponent implements OnInit {
   title = 'headcount';
   users: Array<any>;
-  employees: Array<Employee>;
   navOpen = true;
 
   constructor (
@@ -56,13 +55,5 @@ export class AppComponent implements OnInit {
     // this.employeeService
     //   .addEmployee(newEmployee)
     //   .subscribe(res => console.log(res));
-    this.employeeService
-      .getEmployees()
-      .subscribe(
-        (employees: Array<Employee>) => {
-          this.employees = employees;
-        },
-        err => console.log(err)
-      );
   }
 }

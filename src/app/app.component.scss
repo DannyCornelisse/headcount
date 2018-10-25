@@ -8,7 +8,7 @@ $nav-blue: #253340;
 nav {
   grid-area: nav;
   background: $nav-blue;
-  width: 300px;
+  width: 225px;
   transition: width 0.5s;
   &.nav-closed {
     width: 40px;

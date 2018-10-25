@@ -11,10 +11,7 @@
       <h1>
         Welcome to HeadCount!
       </h1>
-      <div *ngFor="let employee of employees">
-        <p>{{employee.name}}</p>
-        <p>Is on project? --> <span>{{employee.onProject}}</span></p>
-      </div>
+      <router-outlet></router-outlet>
     </div>
   </main>
   <footer>
