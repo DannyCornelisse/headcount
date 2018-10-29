@@ -1,0 +1,40 @@
+<nav [ngClass]="{'nav-closed': !navOpen}">
+  <button (click)="toggleNav()">clickks</button>
+  <a class="nav-link" routerLink="/dashboards" routerLinkActive="active">
+    <i class="nav-icon fas fa-tachometer-alt"></i>
+    <span class="nav-name">
+      Dashboard
+    </span>
+  </a>
+  <a class="nav-link" routerLink="/statistics" routerLinkActive="active">
+    <i class="nav-icon fas fa-chart-bar"></i>
+    <span class="nav-name">
+      Statistics
+    </span>
+  </a>
+  <a class="nav-link" routerLink="/employees" routerLinkActive="active">
+    <i class="nav-icon fas fa-users"></i>
+    <span class="nav-name">
+      Employees
+    </span>
+  </a>
+  <a class="nav-link" routerLink="/export" routerLinkActive="active">
+    <i class="nav-icon fas fa-download"></i>
+    <span class="nav-name">
+      Export
+    </span>
+  </a>
+  <a class="nav-link" routerLink="/companies" routerLinkActive="active">
+    <i class="nav-icon fas fa-city"></i>
+    <span class="nav-name">
+      Companies
+    </span>
+  </a>
+  <a class="nav-link" routerLink="/admin" routerLinkActive="active">
+    <i class="nav-icon fas fa-user-cog"></i>
+    <span class="nav-name">
+      Admin
+    </span>
+  </a>
+  <!-- Navigation -->
+</nav>

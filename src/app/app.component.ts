@@ -11,7 +11,6 @@ import { Employee } from './interfaces/employee';
 export class AppComponent implements OnInit {
   title = 'headcount';
   users: Array<any>;
-  navOpen = true;
 
   constructor (
     public http: HttpClient,
@@ -43,10 +42,6 @@ export class AppComponent implements OnInit {
         _id: userId
       }
     });
-  }
-
-  toggleNav () {
-    this.navOpen = !this.navOpen;
   }
 
   ngOnInit() {

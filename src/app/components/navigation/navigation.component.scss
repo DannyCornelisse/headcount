@@ -1,0 +1,58 @@
+$nav-blue: #253340;
+
+:host {
+  grid-area: nav;
+  background: $nav-blue;
+  width: 225px;
+  transition: width 0.5s;
+  padding: 0.5rem;
+  &.nav-closed {
+    width: 40px;
+  }
+}
+
+.nav-link {
+  display: block;
+  color: white;
+  text-align: left;
+  font-family: sans-serif;
+  font-size: 0.8rem;
+  text-decoration: none;
+  margin: 0 0.5rem;
+  border-bottom: 1px solid white;
+  padding: 1rem 0;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  &:hover {
+    color: red
+  }
+  &.active {
+    color: red;
+    position: relative;
+    &:after {
+      display: inline-block;
+      position: absolute;
+      content: '';
+      top: calc(50% - 8px);
+      right: calc(-8px - 0.5rem);
+      border-width: 8px;
+      border-style: solid;
+      border-color: transparent #F8F8F8 transparent transparent;
+    }
+  }
+}
+
+.nav-icon {
+  display: inline-block;
+  &:before {
+    // background: white;
+    font-size: 1rem;
+    display: inline-block;
+    color: white;
+    // content: 'HI';
+  }
+}
+
+.nav-name {
+  margin-left: 1rem;
+}

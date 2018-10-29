@@ -11,6 +11,7 @@ import { EmployeeCardComponent } from './components/employee-card/employee-card.
 
 // Services
 import { EmployeeService } from './services/employee.service';
+import { NavigationComponent } from './components/navigation/navigation.component';
 
 const appRoutes: Routes = [
   { path: 'employees', component: EmployeeComponent }
@@ -31,7 +32,8 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     EmployeeComponent,
-    EmployeeCardComponent
+    EmployeeCardComponent,
+    NavigationComponent
   ],
   imports: [
     BrowserModule, HttpClientModule,

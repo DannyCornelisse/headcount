@@ -1,14 +1,16 @@
 :host {
-  width: 150px;
-  height: 300px;
+  width: 160px;
+  height: 250px;
   padding: 1rem;
   margin: 0.5rem;
-  background: #F8F8F8;
-  box-shadow: 0 8px 6px -6px lightblue;
-  border-radius: 3x;
+  background: linear-gradient(to bottom, #0081C5 0%,#0081C5 calc(50px + 1.5rem),#0081C5 calc(50px + 1.5rem),white calc(50px + 1.5rem),white 100%);
+  // background: #EFEFEF;
+  box-shadow: 0 6px 3px 0 rgba(0,0,0,.15), 0 1.5px 3px 0 rgba(0,0,0,.15);
+  // border: 1px solid darkgray;
+  border-radius: 2%;
   &:hover {
     cursor: pointer;
-    box-shadow: 0 10px 6px -6px lightblue;
+    box-shadow: 0 10px 6px -6px #0081C5;
     margin-top: 0.4rem;
     transition: 0.1s;
   }
@@ -18,6 +20,8 @@
   height: 80px;
   width: 80px;
   border-radius: 50%;
+  border: 1px solid #0081C5;
+  // box-shadow: inset 0 1.5px 3px 0 rgba(0,0,0,.15), 0 1.5px 3px 0 rgba(0,0,0,.15);
   margin: 0 auto;
   background: white;
   padding: 10px;
