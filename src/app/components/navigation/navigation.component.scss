@@ -1,11 +1,29 @@
 $nav-blue: #253340;
 
-:host {
+.nav-button-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.nav-button {
+  color: white;
+  background: $nav-blue;
+  border-style: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  margin: 0 0.5rem;
+  .nav-closed & {
+    margin: 0 auto;
+  }
+}
+
+nav {
   grid-area: nav;
   background: $nav-blue;
   width: 225px;
   transition: width 0.5s;
   padding: 0.5rem;
+  height: 100%;
   &.nav-closed {
     width: 40px;
   }
@@ -29,6 +47,9 @@ $nav-blue: #253340;
   &.active {
     color: red;
     position: relative;
+    .nav-icon:before {
+      color: red;
+    }
     &:after {
       display: inline-block;
       position: absolute;
@@ -40,19 +61,28 @@ $nav-blue: #253340;
       border-color: transparent #F8F8F8 transparent transparent;
     }
   }
+  .nav-closed & {
+    text-align: center;
+  }
 }
 
 .nav-icon {
   display: inline-block;
   &:before {
-    // background: white;
     font-size: 1rem;
     display: inline-block;
     color: white;
-    // content: 'HI';
   }
 }
 
 .nav-name {
   margin-left: 1rem;
+  display: inline-block;
+  .nav-closed & {
+    visibility: hidden;
+    transition: width 0.5s;
+    display: none;
+    width: 0;
+    overflow: hidden;
+  }
 }

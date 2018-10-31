@@ -14,15 +14,25 @@ export class EmployeeComponent implements OnInit {
   ) { }
   employees: Array<Employee>;
 
-  ngOnInit() {
-    this.employeeService
+  fetchEmployees () {
+    return this.employeeService
       .getEmployees()
-      .subscribe(
-        (employees: Array<Employee>) => {
+      .subscribe((employees: Array<Employee>) => {
           this.employees = employees;
         },
         err => console.log(err)
       );
+  }
+
+  addEmployee(employee: Employee) {
+    this.employeeService
+      .addEmployee(employee)
+      .subscribe(() => this.fetchEmployees());
+  }
+
+
+  ngOnInit() {
+    this.fetchEmployees();
   }
 
 

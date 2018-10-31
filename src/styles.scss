@@ -2,10 +2,14 @@
 @import "./../node_modules/normalize-scss/sass/normalize";
 
 
-html {
+html, body {
   background: #F8F8F8;
 }
 
 body {
   margin: 0;
+}
+
+.modal-content {
+  border: 0;
 }
