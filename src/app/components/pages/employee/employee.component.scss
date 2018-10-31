@@ -1,7 +1,18 @@
+.employee-page-container {
+  // background: url("./../../../../assets/employees.svg");
+  background-size: contain;
+  height: 100%;
+}
+
 .employee-cards-collection {
   display: flex;
   padding: 1rem;
   background: #F8F8F8;
   margin: 0.5rem;
   flex-wrap: wrap;
+}
+
+.employees-page-title {
+  margin-left: 1.5rem;
+  margin-top: 1.5rem;
 }

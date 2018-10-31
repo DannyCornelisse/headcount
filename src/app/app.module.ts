@@ -13,6 +13,7 @@ import { EmployeeCardComponent } from './components/employee-card/employee-card.
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { AddEmployeeCardComponent } from './components/add-employee-card/add-employee-card.component';
 import { AddEmployeeModalComponent } from './components/add-employee-modal/add-employee-modal.component';
+import { EditEmployeeModalComponent } from './components/edit-employee-modal/edit-employee-modal.component';
 
 // Services
 import { EmployeeService } from './services/employee.service';
@@ -39,18 +40,19 @@ const appRoutes: Routes = [
     EmployeeCardComponent,
     NavigationComponent,
     AddEmployeeCardComponent,
-    AddEmployeeModalComponent
+    AddEmployeeModalComponent,
+    EditEmployeeModalComponent
   ],
   imports: [
     BrowserModule, HttpClientModule,
     RouterModule.forRoot(
       appRoutes,
-      { enableTracing: true } // <-- debugging purposes only
+      { enableTracing: false } // <-- debugging purposes only
     ),
     NgbModule, FormsModule
   ],
   providers: [EmployeeService],
   bootstrap: [AppComponent],
-  entryComponents: [AddEmployeeModalComponent]
+  entryComponents: [AddEmployeeModalComponent, EditEmployeeModalComponent]
 })
 export class AppModule { }

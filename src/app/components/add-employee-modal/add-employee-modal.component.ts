@@ -12,7 +12,10 @@ import { Employee } from 'src/app/interfaces/employee';
 export class AddEmployeeModalComponent implements OnInit {
   newEmployee: Employee = {
     name: '',
-    onProject: false
+    onProject: false,
+    company: {
+      name: ''
+    }
   };
 
   constructor(

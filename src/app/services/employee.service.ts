@@ -29,7 +29,11 @@ export class EmployeeService {
 
   updateEmployee(employee: Employee) {
     return this.http.put('/api/employees', employee)
-      .subscribe(result => console.log(result));
+      .pipe(
+        map((res: any) => {
+          return res;
+        })
+      );
   }
 
   deleteEmployee (employeeId: string) {

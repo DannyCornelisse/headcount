@@ -1,4 +1,4 @@
-:host {
+.employee-card {
   width: 160px;
   height: 250px;
   padding: 1rem;
@@ -6,6 +6,7 @@
   background: linear-gradient(to bottom, #0081C5 0%,#0081C5 calc(40px + 1rem),#0081C5 calc(40px + 1rem),white calc(40px + 1rem),white 100%);
   box-shadow: 0 6px 3px 0 rgba(0,0,0,.15);
   border-radius: 1%;
+  text-align: center;
   &:hover {
     cursor: pointer;
     box-shadow: 0 6px 1px 0 #0081C5;
@@ -25,4 +26,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.employee-card-name {
+  margin-top: 0.5rem;
 }

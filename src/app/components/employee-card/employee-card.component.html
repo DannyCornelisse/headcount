@@ -1,3 +1,5 @@
-<div class="employee-headshot-container"><i class="fas fa-camera"></i></div>
-<p><b>{{employee.name}}</b></p>
-<p>Is on project? --> <span>{{employee.onProject}}</span></p>
+<div class="employee-card" (click)="editEmployee(employee)">
+  <div class="employee-headshot-container"><i class="fas fa-camera"></i></div>
+  <p class="employee-card-name"><b>{{employee.name}}</b></p>
+  <p>Is on project? --> <span>{{employee.onProject}}</span></p>
+</div>

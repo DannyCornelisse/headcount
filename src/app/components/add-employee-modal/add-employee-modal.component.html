@@ -8,14 +8,18 @@
     </div>
     <div class="modal-body">
       <div class="employee-headshot-container"><i class="fas fa-camera"></i></div>
-      <p class="form-group">
+      <div class="form-group">
         <label for="name">Name:</label>
         <input type="text" class="form-control" [(ngModel)]="newEmployee.name" name="name" required>
-      </p>
-      <p class="form-group">
-        <label for="onProject">Is on project:</label>
-        <input type="checkbox" class="form-control" [(ngModel)]="newEmployee.onProject" [checked]="newEmployee.onProject" name="onProject">
-      </p>
+      </div>
+      <div class="form-check">
+        <input id="onProject" type="checkbox" class="form-check-input" [(ngModel)]="newEmployee.onProject" [checked]="newEmployee.onProject" name="onProject">
+        <label class="form-check-label" for="onProject">Is on project</label>
+      </div>
+      <div class="form-group">
+          <label for="company">Company:</label>
+          <input type="text" class="form-control" [(ngModel)]="newEmployee.company.name" name="company" required>
+        </div>
     </div>
     <div class="modal-footer">
       <p>
