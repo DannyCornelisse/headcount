@@ -9,7 +9,7 @@ import { EmployeeService } from 'src/app/services/employee.service';
   styleUrls: ['./add-employee-card.component.scss']
 })
 export class AddEmployeeCardComponent implements OnInit {
-  @Output() employeeChange: EventEmitter<any> = this.employeeService.employeeChange;
+  @Output() employeeChange: EventEmitter<any> = new EventEmitter();
 
   constructor(
     private modalService: NgbModal,

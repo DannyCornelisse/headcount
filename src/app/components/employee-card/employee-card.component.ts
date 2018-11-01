@@ -11,7 +11,7 @@ import { EmployeeService } from 'src/app/services/employee.service';
 })
 export class EmployeeCardComponent implements OnInit {
   @Input() employee: Employee;
-  @Output() employeeChange: EventEmitter<any> = this.employeeService.employeeChange;
+  @Output() employeeChange: EventEmitter<any> = new EventEmitter();
 
   constructor(
     private modalService: NgbModal,
