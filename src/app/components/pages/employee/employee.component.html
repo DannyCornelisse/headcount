@@ -3,7 +3,7 @@
     Employees
   </h1>
   <div class="employee-cards-collection">
-    <app-employee-card class="employee-card" *ngFor="let employee of employees" [employee]="employee"></app-employee-card>
-    <app-add-employee-card></app-add-employee-card>
+    <app-employee-card class="employee-card" (employeeChange)="fetchEmployees()" *ngFor="let employee of employees" [employee]="employee"></app-employee-card>
+    <app-add-employee-card class="add-employee-card" (employeeChange)="fetchEmployees()"></app-add-employee-card>
   </div>
 </div>

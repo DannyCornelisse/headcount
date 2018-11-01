@@ -9,7 +9,14 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
   styleUrls: ['./edit-employee-modal.component.scss']
 })
 export class EditEmployeeModalComponent implements OnInit {
-  @Input() employee: Employee = {
+  @Input() employee: Employee;
+
+  constructor(
+    private employeeService: EmployeeService,
+    public activeModal: NgbActiveModal
+  ) { }
+
+  public employeeCopy: Employee = {
     name: '',
     onProject: false,
     company: {
@@ -17,22 +24,28 @@ export class EditEmployeeModalComponent implements OnInit {
     }
   };
 
-  constructor(
-    private employeeService: EmployeeService,
-    public activeModal: NgbActiveModal
-  ) { }
-
   editEmployee() {
     return this.employeeService
-      .updateEmployee(this.employee)
+      .updateEmployee(this.employeeCopy)
       .subscribe(() => {
         return this.activeModal.close();
       });
   }
 
+  deleteEmployee(employeeId) {
+    return this.employeeService
+      .deleteEmployee(employeeId)
+      .subscribe(
+        () => this.activeModal.close(),
+        err => console.log(err)
+      );
+  }
+
   ngOnInit() {
-    if (!this.employee.company) {
-      this.employee.company = {
+    this.employeeCopy = JSON.parse(JSON.stringify(this.employee));
+
+    if (!this.employeeCopy.company) {
+      this.employeeCopy.company = {
         name: ''
       };
     }

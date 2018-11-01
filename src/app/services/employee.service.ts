@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Output, EventEmitter } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Employee } from './../interfaces/employee';
 import { map } from 'rxjs/operators';
@@ -8,6 +8,8 @@ import { map } from 'rxjs/operators';
 })
 export class EmployeeService {
   employees: Array<Employee>;
+  @Output() employeeChange: EventEmitter<any> = new EventEmitter();
+
 
   constructor(
     public http: HttpClient
