@@ -10,27 +10,28 @@ export class EmployeeService {
   employees: Array<Employee>;
   @Output() employeeChange: EventEmitter<any> = new EventEmitter();
 
+  private endpoint = '/api/employees/';
 
   constructor(
     public http: HttpClient
   ) { }
 
   addEmployee (employee: Employee) {
-    return this.http.post('/api/employees', employee);
+    return this.http.post(this.endpoint, employee);
   }
 
   getEmployees() {
-    return this.http.get('/api/employees')
+    return this.http.get(this.endpoint)
     .pipe(
       map((res: any) => {
-        this.employees = res.data;
+        this.employees = res;
         return this.employees;
       })
     );
   }
 
   updateEmployee(employee: Employee) {
-    return this.http.put('/api/employees', employee)
+    return this.http.put(`${this.endpoint}${employee._id}`, employee)
       .pipe(
         map((res: any) => {
           return res;
@@ -39,10 +40,6 @@ export class EmployeeService {
   }
 
   deleteEmployee (employeeId: string) {
-    return this.http.delete('api/employees', {
-      params: {
-        _id: employeeId
-      }
-    });
+    return this.http.delete(`${this.endpoint}${employeeId}`);
   }
 }
