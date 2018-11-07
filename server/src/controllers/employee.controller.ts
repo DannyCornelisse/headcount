@@ -46,7 +46,7 @@ export class EmployeeController {
   }
 
   public deleteEmployee(req: Request, res: Response) {
-    Employee.deleteOne({ _id: req.params.employeeId }, (err, employee) => {
+    Employee.deleteOne({ _id: req.params.employeeId }, (err) => {
       if (err) {
         res.send(err);
       }

@@ -1,20 +1,27 @@
 import * as express from 'express';
 import * as bodyParser from 'body-parser';
 import * as mongoose from 'mongoose';
+import { MongoError } from 'mongodb';
 
 // Routes
 import { Routes } from './routes/employee.routes';
+import { AuthRoutes } from './routes/auth.routes';
+import { UserRoutes } from './routes/user.routes';
 
 class App {
   public app: express.Application;
+  public mongoUrl = 'mongodb://localhost:27017/test';
   public employeeRoutes: Routes = new Routes();
-  public mongoUrl: String = 'mongodb://localhost:27017/test';
+  public authRoutes: AuthRoutes = new AuthRoutes();
+  public userRoutes: UserRoutes = new UserRoutes();
 
   constructor() {
     this.app = express();
     this.config();
-    this.employeeRoutes.routes(this.app);
     this.mongoSetup();
+    this.employeeRoutes.routes(this.app);
+    this.authRoutes.routes(this.app);
+    this.userRoutes.routes(this.app);
   }
 
   private config(): void {
@@ -25,8 +32,8 @@ class App {
   }
 
   private mongoSetup(): void {
-    mongoose.Promise = global.Promise;
-    mongoose.connect(this.mongoUrl, { useNewUrlParser: true }, (err, client) => {
+    (<any>mongoose).Promise = global.Promise; // mongoose.Promise = ... is not allowed by TS
+    mongoose.connect(this.mongoUrl, { useNewUrlParser: true }, (err: MongoError) => {
       if (err) {
         return console.log(err);
       }

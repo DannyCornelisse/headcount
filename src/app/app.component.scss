@@ -6,6 +6,7 @@
 .container {
   flex-grow: 1;
   display: grid;
+  max-width: none;
   grid-template-areas:
     "header"
     "content"

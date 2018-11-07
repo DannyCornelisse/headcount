@@ -12,15 +12,11 @@ export class Routes {
         });
       });
 
-    // Contact
     app.route('/api/employees')
-      // GET endpoint
       .get(this.employeeController.getEmployees)
       .post(this.employeeController.addNewEmployee);
 
-    // Contact detail
     app.route('/api/employees/:employeeId')
-      // get specific employee
       .get(this.employeeController.getEmployeeWithID)
       .put(this.employeeController.updateEmployee)
       .delete(this.employeeController.deleteEmployee);
