@@ -1,5 +1,10 @@
 <div class="employee-card" (click)="editEmployee(employee)">
   <div class="employee-headshot-container"><i class="fas fa-camera"></i></div>
   <p class="employee-card-name"><b>{{employee.name}}</b></p>
-  <p>Is on project? --> <span>{{employee.onProject}}</span></p>
+  <p class="employee-card-project-title">On project:
+    <span class="emloyee-card-project-status">
+      {{employee.onProject ? 'Yes' : 'No'}}
+    </span>
+  </p>
+  <p class="employee-card-company">{{employee.company.name}}</p>
 </div>

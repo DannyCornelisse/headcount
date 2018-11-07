@@ -17,6 +17,7 @@ import { EditEmployeeModalComponent } from './components/edit-employee-modal/edi
 
 // Services
 import { EmployeeService } from './services/employee.service';
+import { EmployeeImageComponent } from './components/employee-image/employee-image.component';
 
 const appRoutes: Routes = [
   { path: 'employees', component: EmployeeComponent }
@@ -41,7 +42,8 @@ const appRoutes: Routes = [
     NavigationComponent,
     AddEmployeeCardComponent,
     AddEmployeeModalComponent,
-    EditEmployeeModalComponent
+    EditEmployeeModalComponent,
+    EmployeeImageComponent
   ],
   imports: [
     BrowserModule, HttpClientModule,

@@ -5,6 +5,7 @@
 
 .container {
   flex-grow: 1;
+  max-width: none;
   display: grid;
   grid-template-areas:
     "header"

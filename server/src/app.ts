@@ -4,16 +4,19 @@ import * as mongoose from 'mongoose';
 
 // Routes
 import { Routes } from './routes/employee.routes';
+import { EmployeeImageRoutes } from './routes/employee-image.routes';
 
 class App {
   public app: express.Application;
   public employeeRoutes: Routes = new Routes();
+  public employeeImageRoutes: EmployeeImageRoutes = new EmployeeImageRoutes();
   public mongoUrl: String = 'mongodb://localhost:27017/test';
 
   constructor() {
     this.app = express();
     this.config();
     this.employeeRoutes.routes(this.app);
+    this.employeeImageRoutes.routes(this.app);
     this.mongoSetup();
   }
 
@@ -21,7 +24,7 @@ class App {
     // support application/json type post data
     this.app.use(bodyParser.json());
     // support application/x-www-form-urlencoded post data
-    this.app.use(bodyParser.urlencoded({ extended: false }));
+    this.app.use(bodyParser.urlencoded({ extended: true }));
   }
 
   private mongoSetup(): void {
