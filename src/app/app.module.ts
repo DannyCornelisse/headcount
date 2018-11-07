@@ -17,9 +17,12 @@ import { EditEmployeeModalComponent } from './components/edit-employee-modal/edi
 
 // Services
 import { EmployeeService } from './services/employee.service';
+import { LoginPageComponent } from './components/pages/login-page/login-page.component';
+import { LoginModalComponent } from './components/login-modal/login-modal.component';
 
 const appRoutes: Routes = [
-  { path: 'employees', component: EmployeeComponent }
+  { path: 'employees', component: EmployeeComponent },
+  { path: '', component: LoginPageComponent }
   // { path: 'hero/:id',      component: HeroDetailComponent },
   // {
   //   path: 'heroes',
@@ -41,7 +44,9 @@ const appRoutes: Routes = [
     NavigationComponent,
     AddEmployeeCardComponent,
     AddEmployeeModalComponent,
-    EditEmployeeModalComponent
+    EditEmployeeModalComponent,
+    LoginPageComponent,
+    LoginModalComponent
   ],
   imports: [
     BrowserModule, HttpClientModule,
@@ -53,6 +58,10 @@ const appRoutes: Routes = [
   ],
   providers: [EmployeeService],
   bootstrap: [AppComponent],
-  entryComponents: [AddEmployeeModalComponent, EditEmployeeModalComponent]
+  entryComponents: [
+    AddEmployeeModalComponent,
+    EditEmployeeModalComponent,
+    LoginModalComponent
+  ]
 })
 export class AppModule { }
