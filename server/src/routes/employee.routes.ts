@@ -1,5 +1,6 @@
 import { Request, Response, Application } from 'express';
 import { EmployeeController } from './../controllers/employee.controller';
+import { verifyToken } from './../middleware/verify-token.middleware';
 
 export class Routes {
   public employeeController: EmployeeController = new EmployeeController();
@@ -13,12 +14,12 @@ export class Routes {
       });
 
     app.route('/api/employees')
-      .get(this.employeeController.getEmployees)
-      .post(this.employeeController.addNewEmployee);
+      .get(verifyToken, this.employeeController.getEmployees)
+      .post(verifyToken, this.employeeController.addNewEmployee);
 
     app.route('/api/employees/:employeeId')
-      .get(this.employeeController.getEmployeeWithID)
-      .put(this.employeeController.updateEmployee)
-      .delete(this.employeeController.deleteEmployee);
+      .get(verifyToken, this.employeeController.getEmployeeWithID)
+      .put(verifyToken, this.employeeController.updateEmployee)
+      .delete(verifyToken, this.employeeController.deleteEmployee);
   }
 }

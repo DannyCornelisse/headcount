@@ -2,6 +2,8 @@ import { Injectable, Output, EventEmitter } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Employee } from './../interfaces/employee';
 import { map } from 'rxjs/operators';
+import { Observable } from 'rxjs';
+import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root'
@@ -13,33 +15,42 @@ export class EmployeeService {
   private endpoint = '/api/employees/';
 
   constructor(
-    public http: HttpClient
+    private http: HttpClient,
+    private authService: AuthService
   ) { }
 
-  addEmployee (employee: Employee) {
-    return this.http.post(this.endpoint, employee);
+  public addEmployee (employee: Employee): Observable<Object> {
+    const token = this.authService.getToken();
+    return this.http.post(this.endpoint, employee, { headers: {'x-access-token': token} });
   }
 
-  getEmployees() {
-    return this.http.get(this.endpoint)
+  public getEmployees() {
+    const token = this.authService.getToken();
+    return this.http.get(this.endpoint, { headers: {'x-access-token': token} })
     .pipe(
       map((res: any) => {
         this.employees = res;
         return this.employees;
       })
-    );
-  }
-
-  updateEmployee(employee: Employee) {
-    return this.http.put(`${this.endpoint}${employee._id}`, employee)
-      .pipe(
-        map((res: any) => {
-          return res;
-        })
       );
+    }
+
+    public updateEmployee(employee: Employee): Observable<any> {
+      const token = this.authService.getToken();
+      return this.http.put(
+        `${this.endpoint}${employee._id}`,
+        employee,
+        { headers: {'x-access-token': token} }
+        )
+        .pipe(
+          map((res: any) => {
+            return res;
+          })
+        );
   }
 
-  deleteEmployee (employeeId: string) {
-    return this.http.delete(`${this.endpoint}${employeeId}`);
+  public deleteEmployee (employeeId: string) {
+    const token = this.authService.getToken();
+    return this.http.delete(`${this.endpoint}${employeeId}`, { headers: {'x-access-token': token} });
   }
 }

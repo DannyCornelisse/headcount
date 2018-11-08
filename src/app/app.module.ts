@@ -14,15 +14,23 @@ import { NavigationComponent } from './components/navigation/navigation.componen
 import { AddEmployeeCardComponent } from './components/add-employee-card/add-employee-card.component';
 import { AddEmployeeModalComponent } from './components/add-employee-modal/add-employee-modal.component';
 import { EditEmployeeModalComponent } from './components/edit-employee-modal/edit-employee-modal.component';
+import { LoginPageComponent } from './components/pages/login-page/login-page.component';
+import { LoginModalComponent } from './components/login-modal/login-modal.component';
+import { RegisterModalComponent } from './components/register-modal/register-modal.component';
 
 // Services
 import { EmployeeService } from './services/employee.service';
-import { LoginPageComponent } from './components/pages/login-page/login-page.component';
-import { LoginModalComponent } from './components/login-modal/login-modal.component';
+import { AuthResolverService } from './config/auth-resolver.service';
 
 const appRoutes: Routes = [
-  { path: 'employees', component: EmployeeComponent },
-  { path: '', component: LoginPageComponent }
+  { path: 'employees',
+    component: EmployeeComponent,
+    resolve: {
+      token: AuthResolverService
+    }
+  },
+  { path: 'login', component: LoginPageComponent },
+  { path: '**', redirectTo: 'login' }, // Should be last!
   // { path: 'hero/:id',      component: HeroDetailComponent },
   // {
   //   path: 'heroes',
@@ -46,7 +54,8 @@ const appRoutes: Routes = [
     AddEmployeeModalComponent,
     EditEmployeeModalComponent,
     LoginPageComponent,
-    LoginModalComponent
+    LoginModalComponent,
+    RegisterModalComponent
   ],
   imports: [
     BrowserModule, HttpClientModule,
@@ -61,7 +70,8 @@ const appRoutes: Routes = [
   entryComponents: [
     AddEmployeeModalComponent,
     EditEmployeeModalComponent,
-    LoginModalComponent
+    LoginModalComponent,
+    RegisterModalComponent
   ]
 })
 export class AppModule { }

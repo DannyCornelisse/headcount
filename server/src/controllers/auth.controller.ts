@@ -40,7 +40,6 @@ export class AuthController {
 
 
   public login(req: any, res: Response) {
-    console.log('hello');
     User.findOne({ name: req.body.name }, function (err, user: any) {
       if (err) {
         return res.status(500).send('There was a problem registering the user.');

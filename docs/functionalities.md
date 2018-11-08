@@ -5,8 +5,9 @@ Incl. optie wachtwoord vergeten
 Dashboard:
 Op het dashboard wat widgets toevoegen waarbij data getoond wordt zoals:
 - Hoeveel medewerkers in dienst, trainee, stagiare
+- Gedeelde kalender waar alle users activiteiten kunnen toevoegen
 - Hoeveel personen op project of op de bank
-- Weergeven wat er als laatst geupdate is in de applicatie
+- Weergeven wat er als laatst geupdate is in de applicatie (log endpoint) wie is ingelogd en wat heeft gedaan
 
 - Navigatie side bar (moet kunnen in- en uitklappen)
 

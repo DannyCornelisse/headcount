@@ -19,12 +19,14 @@ export class UserController {
       password : hashedPassword
     });
 
+    const day = 86400;
+
     newUser.save((err, user) => {
       if (err) {
         return res.status(500).send('There was a problem registering the user.');
       }
       const token = jwt.sign({ id: user._id }, config.secret, {
-        expiresIn: 86400 // expires in 24 hours
+        expiresIn: day
       });
 
       res.status(200).send({ auth: true, token: token });

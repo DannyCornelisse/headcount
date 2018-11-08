@@ -10,8 +10,8 @@ import { UserRoutes } from './routes/user.routes';
 
 class App {
   public app: express.Application;
-  // public mongoUrl = 'mongodb://localhost:27017/test';
-  public mongoUrl = 'mongodb://DannyC:testy123@ds155823.mlab.com:55823/testy';
+  public mongoUrl = 'mongodb://localhost:27017/test';
+  // public mongoUrl = 'mongodb://DannyC:testy456@ds155823.mlab.com:55823/testy';
   public employeeRoutes: Routes = new Routes();
   public authRoutes: AuthRoutes = new AuthRoutes();
   public userRoutes: UserRoutes = new UserRoutes();

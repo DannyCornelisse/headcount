@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { LoginService } from '../../services/login.service';
+import { LoginCreds } from 'src/app/interfaces/login-creds';
 
 @Component({
   selector: 'app-login-modal',
@@ -8,7 +9,7 @@ import { LoginService } from '../../services/login.service';
   styleUrls: ['./login-modal.component.scss']
 })
 export class LoginModalComponent implements OnInit {
-  public loginCreds = {
+  public loginCreds: LoginCreds = {
     name: '',
     password: ''
   };
@@ -22,7 +23,9 @@ export class LoginModalComponent implements OnInit {
     this.loginService
       .login(this.loginCreds)
       .subscribe(
-        res => console.log(res),
+        () => {
+          this.activeModal.close('successfully logged in');
+        },
         err => console.error(err)
       );
   }

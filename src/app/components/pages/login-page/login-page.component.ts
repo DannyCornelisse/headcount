@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { LoginModalComponent } from '../../login-modal/login-modal.component';
+import { RegisterModalComponent } from '../../register-modal/register-modal.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login-page',
@@ -10,18 +12,22 @@ import { LoginModalComponent } from '../../login-modal/login-modal.component';
 export class LoginPageComponent implements OnInit {
 
   constructor(
-    private modalService: NgbModal
+    private modalService: NgbModal,
+    private router: Router
   ) { }
 
   openLoginModal() {
     const modalRef = this.modalService.open(LoginModalComponent);
     modalRef.result.then(() => {
-      console.log('login modal closed');
+      this.router.navigate(['/employees']);
     });
   }
 
   openRegisterModal() {
-
+    const modalRef = this.modalService.open(RegisterModalComponent);
+    modalRef.result.then(() => {
+      this.router.navigate(['/employees']);
+    });
   }
 
   ngOnInit() {
