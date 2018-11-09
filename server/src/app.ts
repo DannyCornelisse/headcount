@@ -7,6 +7,7 @@ import { MongoError } from 'mongodb';
 import { Routes } from './routes/employee.routes';
 import { AuthRoutes } from './routes/auth.routes';
 import { UserRoutes } from './routes/user.routes';
+import { CompanyRoutes } from './routes/company.routes';
 
 class App {
   public app: express.Application;
@@ -15,6 +16,7 @@ class App {
   public employeeRoutes: Routes = new Routes();
   public authRoutes: AuthRoutes = new AuthRoutes();
   public userRoutes: UserRoutes = new UserRoutes();
+  public companyRoutes: CompanyRoutes = new CompanyRoutes();
 
   constructor() {
     this.app = express();
@@ -23,6 +25,7 @@ class App {
     this.employeeRoutes.routes(this.app);
     this.authRoutes.routes(this.app);
     this.userRoutes.routes(this.app);
+    this.companyRoutes.routes(this.app);
   }
 
   private config(): void {

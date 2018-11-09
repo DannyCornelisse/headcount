@@ -4,14 +4,19 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class AuthService {
+  private localStorageKey = 'jwt';
 
   constructor() { }
 
   public saveToken (token: string): void {
-    localStorage.setItem('jwt', token);
+    return localStorage.setItem(this.localStorageKey, token);
   }
 
   public getToken (): string {
-    return localStorage.getItem('jwt');
+    return localStorage.getItem(this.localStorageKey);
+  }
+
+  public removeToken(): void {
+    return localStorage.removeItem(this.localStorageKey);
   }
 }

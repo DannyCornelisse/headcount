@@ -1,7 +1,6 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { AddEmployeeModalComponent } from './../add-employee-modal/add-employee-modal.component';
-import { EmployeeService } from 'src/app/services/employee.service';
 
 @Component({
   selector: 'app-add-employee-card',
@@ -12,11 +11,10 @@ export class AddEmployeeCardComponent implements OnInit {
   @Output() employeeChange: EventEmitter<any> = new EventEmitter();
 
   constructor(
-    private modalService: NgbModal,
-    private employeeService: EmployeeService
+    private modalService: NgbModal
   ) { }
 
-  openEmployeeModal() {
+  public openEmployeeModal() {
     const modalRef = this.modalService.open(AddEmployeeModalComponent);
     modalRef.result.then(() => {
       this.employeeChange.emit('update employees');

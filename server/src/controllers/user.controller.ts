@@ -26,7 +26,7 @@ export class UserController {
         return res.status(500).send('There was a problem registering the user.');
       }
       const token = jwt.sign({ id: user._id }, config.secret, {
-        expiresIn: day
+        expiresIn: day // expires in 24 hours
       });
 
       res.status(200).send({ auth: true, token: token });

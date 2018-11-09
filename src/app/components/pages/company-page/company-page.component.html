@@ -1,0 +1,9 @@
+<div class="company-page-container">
+  <h1 class="companys-page-title">
+    Companies
+  </h1>
+  <div class="company-cards-collection">
+    <!-- <app-company-card class="company-card" (companyChange)="fetchEmployees()" *ngFor="let company of companys" [company]="company"></app-company-card> -->
+    <app-add-company-card class="add-company-card" (companyChange)="fetchCompanies()"></app-add-company-card>
+  </div>
+</div>

@@ -17,14 +17,22 @@ import { EditEmployeeModalComponent } from './components/edit-employee-modal/edi
 import { LoginPageComponent } from './components/pages/login-page/login-page.component';
 import { LoginModalComponent } from './components/login-modal/login-modal.component';
 import { RegisterModalComponent } from './components/register-modal/register-modal.component';
+import { CompanyPageComponent } from './components/pages/company-page/company-page.component';
 
 // Services
 import { EmployeeService } from './services/employee.service';
 import { AuthResolverService } from './config/auth-resolver.service';
+import { AddCompanyCardComponent } from './components/add-company-card/add-company-card.component';
 
 const appRoutes: Routes = [
   { path: 'employees',
     component: EmployeeComponent,
+    resolve: {
+      token: AuthResolverService
+    }
+  },
+  { path: 'companies',
+    component: CompanyPageComponent,
     resolve: {
       token: AuthResolverService
     }
@@ -55,7 +63,9 @@ const appRoutes: Routes = [
     EditEmployeeModalComponent,
     LoginPageComponent,
     LoginModalComponent,
-    RegisterModalComponent
+    RegisterModalComponent,
+    CompanyPageComponent,
+    AddCompanyCardComponent
   ],
   imports: [
     BrowserModule, HttpClientModule,

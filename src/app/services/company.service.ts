@@ -1,6 +1,6 @@
 import { Injectable, Output, EventEmitter } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Employee } from './../interfaces/employee';
+import { Company } from './../interfaces/company';
 import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { AuthService } from './auth.service';
@@ -8,38 +8,38 @@ import { AuthService } from './auth.service';
 @Injectable({
   providedIn: 'root'
 })
-export class EmployeeService {
-  employees: Array<Employee>;
-  @Output() employeeChange: EventEmitter<any> = new EventEmitter();
+export class CompanyService {
+  companies: Array<Company>;
+  @Output() companyChange: EventEmitter<any> = new EventEmitter();
 
-  private endpoint = '/api/employees/';
+  private endpoint = '/api/companies';
 
   constructor(
     private http: HttpClient,
     private authService: AuthService
   ) { }
 
-  public addEmployee(employee: Employee): Observable<Object> {
+  public addCompany(company: Company): Observable<Object> {
     const token = this.authService.getToken();
-    return this.http.post(this.endpoint, employee, { headers: { 'x-access-token': token } });
+    return this.http.post(this.endpoint, company, { headers: { 'x-access-token': token } });
   }
 
-  public getEmployees() {
+  public getCompanies() {
     const token = this.authService.getToken();
     return this.http.get(this.endpoint, { headers: { 'x-access-token': token } })
       .pipe(
         map((res: any) => {
-          this.employees = res;
-          return this.employees;
+          this.companies = res;
+          return this.companies;
         })
       );
   }
 
-  public updateEmployee(employee: Employee): Observable<any> {
+  public updateCompany(company: Company): Observable<any> {
     const token = this.authService.getToken();
     return this.http.put(
-      `${this.endpoint}${employee._id}`,
-      employee,
+      `${this.endpoint}${company._id}`,
+      company,
       { headers: { 'x-access-token': token } }
     )
       .pipe(
@@ -49,8 +49,8 @@ export class EmployeeService {
       );
   }
 
-  public deleteEmployee(employeeId: string) {
+  public deleteCompany(companyId: string) {
     const token = this.authService.getToken();
-    return this.http.delete(`${this.endpoint}${employeeId}`, { headers: { 'x-access-token': token } });
+    return this.http.delete(`${this.endpoint}${companyId}`, { headers: { 'x-access-token': token } });
   }
 }
