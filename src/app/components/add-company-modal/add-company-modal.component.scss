@@ -1,0 +1,13 @@
+
+.modal-header {
+  background: var(--red);
+  color: white;
+  .close {
+    color: white;
+  }
+}
+
+.modal-body {
+  width: 80%;
+  margin: 0 auto;
+}

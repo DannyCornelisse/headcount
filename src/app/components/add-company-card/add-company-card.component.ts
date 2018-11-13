@@ -1,5 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { AddCompanyModalComponent } from './../add-company-modal/add-company-modal.component';
 
 @Component({
   selector: 'app-add-company-card',
@@ -15,7 +16,7 @@ export class AddCompanyCardComponent implements OnInit {
   ) { }
 
   public openCompanyModal() {
-    const modalRef = this.modalService.open('<h1>hello</h1');
+    const modalRef = this.modalService.open(AddCompanyModalComponent);
     modalRef.result.then(() => {
       this.companyChange.emit('update companies');
     })

@@ -3,6 +3,7 @@ export interface Company {
   name: String;
   address: {
     streetName: String,
+    city: String,
     number: Number,
     annex: String,
     postalCode: String

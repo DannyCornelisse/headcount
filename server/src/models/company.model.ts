@@ -7,6 +7,7 @@ export const companySchema = new Schema({
   },
   address: {
     streetName: String,
+    city: String,
     number: Number,
     annex: String,
     postalCode: String

@@ -21,5 +21,7 @@ describe('CompanyPageComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+    component.ngOnInit();
+    expect(component.fetchCompanies).toHaveBeenCalled();
   });
 });

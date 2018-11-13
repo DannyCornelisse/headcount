@@ -1,0 +1,33 @@
+.company-card {
+  width: 160px;
+  height: 250px;
+  padding: 1rem;
+  margin: 0.5rem;
+  background: linear-gradient(to bottom, var(--red) 0%,var(--red) calc(40px + 1rem),var(--red) calc(40px + 1rem),white calc(40px + 1rem),white 100%);
+  box-shadow: 0 6px 3px 0 rgba(0,0,0,.15);
+  border-radius: 1%;
+  text-align: center;
+  &:hover {
+    cursor: pointer;
+    box-shadow: 0 6px 1px 0 var(--red);
+    margin-top: calc(0.5rem - 1px);
+    transition: 0.1s;
+  }
+}
+
+.company-headshot-container {
+  height: 80px;
+  width: 80px;
+  border-radius: 50%;
+  border: 1px solid var(--red);
+  margin: 0 auto;
+  background: white;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.company-card-name {
+  margin-top: 0.5rem;
+}

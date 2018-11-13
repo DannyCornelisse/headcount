@@ -18,11 +18,13 @@ import { LoginPageComponent } from './components/pages/login-page/login-page.com
 import { LoginModalComponent } from './components/login-modal/login-modal.component';
 import { RegisterModalComponent } from './components/register-modal/register-modal.component';
 import { CompanyPageComponent } from './components/pages/company-page/company-page.component';
+import { AddCompanyModalComponent } from './components/add-company-modal/add-company-modal.component';
 
 // Services
 import { EmployeeService } from './services/employee.service';
 import { AuthResolverService } from './config/auth-resolver.service';
 import { AddCompanyCardComponent } from './components/add-company-card/add-company-card.component';
+import { CompanyCardComponent } from './components/company-card/company-card.component';
 
 const appRoutes: Routes = [
   { path: 'employees',
@@ -65,7 +67,9 @@ const appRoutes: Routes = [
     LoginModalComponent,
     RegisterModalComponent,
     CompanyPageComponent,
-    AddCompanyCardComponent
+    AddCompanyCardComponent,
+    AddCompanyModalComponent,
+    CompanyCardComponent
   ],
   imports: [
     BrowserModule, HttpClientModule,
@@ -81,7 +85,8 @@ const appRoutes: Routes = [
     AddEmployeeModalComponent,
     EditEmployeeModalComponent,
     LoginModalComponent,
-    RegisterModalComponent
+    RegisterModalComponent,
+    AddCompanyModalComponent
   ]
 })
 export class AppModule { }
