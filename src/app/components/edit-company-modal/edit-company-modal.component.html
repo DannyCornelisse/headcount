@@ -1,0 +1,51 @@
+<form #editCompanyForm="ngForm" (ngSubmit)="editCompany()">
+  <div class="modal-container">
+    <div class="modal-header">
+      <h4 class="modal-title">Edit company</h4>
+      <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="text" class="form-control" [(ngModel)]="companyCopy.name" name="name" placeholder="e.g. Google LLC" required>
+      </div>
+      <p>Address:</p>
+      <div class="form-group row">
+        <div class="col-7">
+          <label for="streetname">Street name:</label>
+          <input type="text" class="form-control" [(ngModel)]="companyCopy.address.streetName" name="streetname" placeholder="Main street" required>
+        </div>
+        <div class="col-3">
+          <label for="streetnumber">Number:</label>
+          <input type="number" step="1" class="form-control" [(ngModel)]="companyCopy.address.number" name="streetnumber" required>
+        </div>
+        <div class="col-2">
+          <label for="streetannex">Annex:</label>
+          <input type="text" class="form-control" [(ngModel)]="companyCopy.address.annex" name="streetannex">
+        </div>
+      </div>
+      <div class="form-group row">
+        <div class="col-7">
+          <label for="postalcode">Postal code:</label>
+          <input type="text" class="form-control" [(ngModel)]="companyCopy.address.postalCode" name="postalcode" placeholder="1234AB" required>
+        </div>
+        <div class="col-5">
+          <label for="City">City:</label>
+          <input type="text" class="form-control" [(ngModel)]="companyCopy.address.city" name="City" placeholder="1234AB" required>
+        </div>
+      </div>
+      <div class="form-group">
+          <label for="customernumber">Customer number:</label>
+          <input type="number" class="form-control" [(ngModel)]="companyCopy.customerNumber" name="customernumber" placeholder="Fill out the customer number" required>
+        </div>
+    </div>
+    <div class="modal-footer">
+      <p>
+        <button type="button" class="btn btn-outline-dark btn-delete-employee" (click)="deleteCompany(companyCopy._id)"><i class="fas fa-trash btn-delete-employee-icon"></i> Delete</button>
+        <button class="btn btn-outline-dark" type="submit" [disabled]="!editCompanyForm.valid">Submit</button>
+      </p>
+    </div>
+  </div>
+</form>

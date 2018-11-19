@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Company } from 'src/app/interfaces/company';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { EditCompanyModalComponent } from './../edit-company-modal/edit-company-modal.component';
 
 @Component({
   selector: 'app-company-card',
@@ -16,7 +17,7 @@ export class CompanyCardComponent implements OnInit {
   ) { }
 
   editCompany(company: Company) {
-    const modalRef = this.modalService.open('<H1>hi</h1>');
+    const modalRef = this.modalService.open(EditCompanyModalComponent);
 
     modalRef.componentInstance.company = company;
     modalRef.result

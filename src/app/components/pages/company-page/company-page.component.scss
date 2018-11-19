@@ -1,0 +1,17 @@
+.company-page-container {
+  background-size: contain;
+  height: 100%;
+}
+
+.company-cards-collection {
+  display: flex;
+  padding: 1rem;
+  background: #F8F8F8;
+  margin: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.companys-page-title {
+  margin-left: 1.5rem;
+  margin-top: 1.5rem;
+}

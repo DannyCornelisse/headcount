@@ -25,6 +25,7 @@ import { EmployeeService } from './services/employee.service';
 import { AuthResolverService } from './config/auth-resolver.service';
 import { AddCompanyCardComponent } from './components/add-company-card/add-company-card.component';
 import { CompanyCardComponent } from './components/company-card/company-card.component';
+import { EditCompanyModalComponent } from './components/edit-company-modal/edit-company-modal.component';
 
 const appRoutes: Routes = [
   { path: 'employees',
@@ -69,7 +70,8 @@ const appRoutes: Routes = [
     CompanyPageComponent,
     AddCompanyCardComponent,
     AddCompanyModalComponent,
-    CompanyCardComponent
+    CompanyCardComponent,
+    EditCompanyModalComponent
   ],
   imports: [
     BrowserModule, HttpClientModule,
@@ -86,7 +88,8 @@ const appRoutes: Routes = [
     EditEmployeeModalComponent,
     LoginModalComponent,
     RegisterModalComponent,
-    AddCompanyModalComponent
+    AddCompanyModalComponent,
+    EditCompanyModalComponent
   ]
 })
 export class AppModule { }

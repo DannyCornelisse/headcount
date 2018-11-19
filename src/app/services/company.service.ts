@@ -12,7 +12,7 @@ export class CompanyService {
   companies: Array<Company>;
   @Output() companyChange: EventEmitter<any> = new EventEmitter();
 
-  private endpoint = '/api/companies';
+  private endpoint = '/api/companies/';
 
   constructor(
     private http: HttpClient,
