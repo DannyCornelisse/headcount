@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { EmployeeService } from 'src/app/services/employee.service';
-import { Employee } from 'src/app/interfaces/employee';
+import { Employee, EmployeeTypeOptions } from 'src/app/interfaces/employee';
 
 
 @Component({
@@ -15,8 +15,11 @@ export class AddEmployeeModalComponent implements OnInit {
     onProject: false,
     company: {
       name: ''
-    }
+    },
+    type: 'None'
   };
+
+  employeeTypeOptions = EmployeeTypeOptions;
 
   constructor(
     public activeModal: NgbActiveModal,
@@ -32,6 +35,8 @@ export class AddEmployeeModalComponent implements OnInit {
   }
 
   ngOnInit() {
+    console.log(this.employeeTypeOptions);
+
   }
 
 }

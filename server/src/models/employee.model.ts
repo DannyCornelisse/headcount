@@ -6,6 +6,7 @@ export const employeeSchema = new Schema({
     required: true,
   },
   onProject: Boolean,
+  type: String,
   company: {
     _id: Boolean,
     name: {

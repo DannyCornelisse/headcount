@@ -12,6 +12,12 @@
         <label for="name">Name:</label>
         <input type="text" class="form-control" [(ngModel)]="newEmployee.name" name="name" required>
       </div>
+      <div class="form-group">
+        <label for="type">Type:</label>
+        <select class="form-control" id="type">
+          <option [value]="option" *ngFor="let option of employeeTypeOptions">{{option}}</option>
+        </select>
+      </div>
       <div class="form-check">
         <input id="onProject" type="checkbox" class="form-check-input" [(ngModel)]="newEmployee.onProject" [checked]="newEmployee.onProject" name="onProject">
         <label class="form-check-label" for="onProject">Is on project</label>

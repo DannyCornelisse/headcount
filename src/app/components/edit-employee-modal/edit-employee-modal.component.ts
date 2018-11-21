@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Employee } from 'src/app/interfaces/employee';
+import { Employee, EmployeeTypeOptions } from 'src/app/interfaces/employee';
 import { EmployeeService } from 'src/app/services/employee.service';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
@@ -21,8 +21,11 @@ export class EditEmployeeModalComponent implements OnInit {
     onProject: false,
     company: {
       name: ''
-    }
+    },
+    type: 'None'
   };
+
+  employeeTypeOptions = EmployeeTypeOptions;
 
   editEmployee() {
     return this.employeeService
