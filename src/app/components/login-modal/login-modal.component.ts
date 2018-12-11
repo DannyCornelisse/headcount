@@ -9,6 +9,7 @@ import { LoginCreds } from 'src/app/interfaces/login-creds';
   styleUrls: ['./login-modal.component.scss']
 })
 export class LoginModalComponent implements OnInit {
+  public showError = false;
   public loginCreds: LoginCreds = {
     name: '',
     password: ''
@@ -26,8 +27,16 @@ export class LoginModalComponent implements OnInit {
         () => {
           this.activeModal.close('successfully logged in');
         },
-        err => console.error(err)
+        (err) => {
+          this.showError = true;
+        }
       );
+  }
+
+  public passwordChange (ev: string) {
+    if (ev.length > 0 && this.showError) {
+      this.showError = false;
+    }
   }
 
 

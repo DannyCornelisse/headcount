@@ -7,6 +7,7 @@
   box-shadow: 0 6px 3px 0 rgba(0,0,0,.15);
   border-radius: 1%;
   text-align: center;
+  position: relative;
   &:hover {
     cursor: pointer;
     box-shadow: 0 6px 1px 0 #0081C5;
@@ -30,4 +31,5 @@
 
 .employee-card-name {
   margin-top: 0.5rem;
+  font-weight: bold;
 }

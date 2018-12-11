@@ -1,0 +1,29 @@
+.logout-button {
+  display: block;
+  color: white;
+  text-align: left;
+  font-family: sans-serif;
+  text-decoration: none;
+  margin: 0 0.5rem;
+  padding: 1rem 0;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  &:hover {
+    color: red
+  }
+  &:focus {
+    outline: 0;
+  }
+}
+
+.logout-icon {
+  display: inline-block;
+  &:before {
+    font-size: 1.2rem;
+    display: inline-block;
+    color: white;
+  }
+}

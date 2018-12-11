@@ -26,6 +26,7 @@ import { AuthResolverService } from './config/auth-resolver.service';
 import { AddCompanyCardComponent } from './components/add-company-card/add-company-card.component';
 import { CompanyCardComponent } from './components/company-card/company-card.component';
 import { EditCompanyModalComponent } from './components/edit-company-modal/edit-company-modal.component';
+import { LogoutButtonComponent } from './components/logout-button/logout-button.component';
 
 const appRoutes: Routes = [
   { path: 'employees',
@@ -71,7 +72,8 @@ const appRoutes: Routes = [
     AddCompanyCardComponent,
     AddCompanyModalComponent,
     CompanyCardComponent,
-    EditCompanyModalComponent
+    EditCompanyModalComponent,
+    LogoutButtonComponent
   ],
   imports: [
     BrowserModule, HttpClientModule,

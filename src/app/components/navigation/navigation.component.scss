@@ -22,11 +22,16 @@ nav {
   background: $nav-blue;
   width: 225px;
   transition: width 0.5s;
+  position: relative;
   padding: 0.5rem;
   height: 100%;
   &.nav-closed {
     width: 50px;
   }
+}
+.nav-logout-button {
+  position: absolute;
+  bottom: 0;
 }
 
 .nav-link {

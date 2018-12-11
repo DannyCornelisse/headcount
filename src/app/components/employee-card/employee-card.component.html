@@ -1,5 +1,15 @@
 <div class="employee-card" (click)="editEmployee(employee)">
   <div class="employee-headshot-container"><i class="fas fa-camera"></i></div>
-  <p class="employee-card-name"><b>{{employee.name}}</b></p>
-  <p>Is on project? --> <span>{{employee.onProject}}</span></p>
+  <p class="employee-card-name">
+    {{employee.name}}
+  </p>
+  <p class="employee-card-type">
+      <span class="employee-card-type-icon">
+          <i class="fas fa-school" *ngIf="employee.type === 'Intern'"></i>
+          <i class="fas fa-file-signature" *ngIf="employee.type === 'Contract'"></i>
+          <i class="fas fa-graduation-cap" *ngIf="employee.type === 'Trainee'"></i>
+      </span>
+      {{employee.type}}
+    </p>
+  <p class="employee-card-project-status" *ngIf="employee.onProject">On project</p>
 </div>
