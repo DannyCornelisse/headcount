@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { EmployeeService } from 'src/app/services/employee.service';
 import { Employee, EmployeeTypeOptions } from 'src/app/interfaces/employee';
@@ -18,6 +18,8 @@ export class AddEmployeeModalComponent implements OnInit {
     },
     type: 'None'
   };
+
+  @ViewChild(AddEmployeeModalComponent);
 
   employeeTypeOptions = EmployeeTypeOptions;
 

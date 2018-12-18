@@ -27,6 +27,8 @@ import { AddCompanyCardComponent } from './components/add-company-card/add-compa
 import { CompanyCardComponent } from './components/company-card/company-card.component';
 import { EditCompanyModalComponent } from './components/edit-company-modal/edit-company-modal.component';
 import { LogoutButtonComponent } from './components/logout-button/logout-button.component';
+import { EmployeeBubbleComponent } from './components/widgets/employee-bubble/employee-bubble.component';
+import { DashboardComponent } from './components/pages/dashboard/dashboard.component';
 
 const appRoutes: Routes = [
   { path: 'employees',
@@ -37,6 +39,12 @@ const appRoutes: Routes = [
   },
   { path: 'companies',
     component: CompanyPageComponent,
+    resolve: {
+      token: AuthResolverService
+    }
+  },
+  { path: 'dashboard',
+    component: DashboardComponent,
     resolve: {
       token: AuthResolverService
     }
@@ -73,7 +81,9 @@ const appRoutes: Routes = [
     AddCompanyModalComponent,
     CompanyCardComponent,
     EditCompanyModalComponent,
-    LogoutButtonComponent
+    LogoutButtonComponent,
+    EmployeeBubbleComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule, HttpClientModule,

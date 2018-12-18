@@ -1,0 +1,28 @@
+:host {
+  height: 100%;
+  --bla: 200px;
+}
+.employee-bubble-container {
+  position: relative;
+}
+
+.employee-bubble {
+  height: 100px;
+  width: 100px;
+  position: absolute;
+  background: var(--light);
+  text-align: center;
+    line-height: 100px;
+  &-contract {
+    top: 0;
+    right: 0;
+  }
+  &-trainee {
+    top: var(--bla);
+    right: 0;
+  }
+  &-contract {
+    top: 0;
+    right: 0;
+  }
+}
